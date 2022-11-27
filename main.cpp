@@ -2,6 +2,7 @@
 #include <ctime.h>
 
 class block{
+  public:
     constructor (index, data, timestamp, hash, prevHash = " "){
         this.index = index;
         this.data = data;
@@ -17,6 +18,7 @@ class block{
 }
 
 class blockchain{
+    public:
     constructor (){
         this.chain = [];
     }
@@ -38,8 +40,12 @@ class blockchain{
         return dt;
     }
 
+    getLatestBlock(){
+        return this.chain[this.chain.length - 1];
+    }
+
     addBlock(){
-        return this.chain[this.chain.lenght + 1] = block(this.index + 1, getData(), getTime(), this.chain.lenght - 1)
+        return this.chain[this.chain.lenght + 1] = block(block.index + 1, getData(), getTime(), this->getLatestBlock().hash)
     }
 
     getData(){
